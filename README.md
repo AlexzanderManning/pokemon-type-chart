@@ -30,3 +30,69 @@ Pokémon Go
 Uses pixelmix font by Andrew Tyler ([license](https://creativecommons.org/licenses/by-sa/3.0/us/)).
 
 Other languages: [Français](https://github.com/KarlBishop/pokemon-type-chart/blob/gh-pages/README.fr.md)
+
+## Running Locally
+
+This project is built with [Jekyll](https://jekyllrb.com/) and GitHub Pages. There are two ways to run it locally:
+
+### Option 1: Without Jekyll (No Ruby Required)
+
+You can view the pre-built static site without installing Jekyll:
+
+1. Clone this repository
+   ```
+   git clone https://github.com/KarlBishop/pokemon-type-chart.git
+   cd pokemon-type-chart
+   ```
+
+2. Open the HTML files directly in your browser:
+   - Open `_site/index.html` for the Pokémon Go chart
+   - Open `_site/gen6.html` for the Generation 6+ chart
+   - Open `_site/pogo_old.html` for the old Pokémon Go chart
+
+   OR
+
+3. Use a simple HTTP server:
+
+   With Python (usually pre-installed on macOS/Linux):
+   ```
+   # Python 3
+   cd _site
+   python -m http.server 8000
+
+   # Python 2
+   cd _site
+   python -m SimpleHTTPServer 8000
+   ```
+
+   Then open your browser and navigate to `http://localhost:8000`
+
+### Option 2: With Jekyll
+
+If you want to modify the site and rebuild it:
+
+#### Prerequisites
+- Ruby 2.7 (recommended)
+- Bundler 2.1.4 or later
+
+#### Installation
+1. Clone this repository
+   ```
+   git clone https://github.com/KarlBishop/pokemon-type-chart.git
+   cd pokemon-type-chart
+   ```
+
+2. Install dependencies
+   ```
+   bundle install
+   ```
+
+#### Running the site
+1. Start the Jekyll server
+   ```
+   bundle exec jekyll serve
+   ```
+
+2. Open your browser and navigate to `http://localhost:4000`
+
+The site will automatically refresh when you make changes to the source files.

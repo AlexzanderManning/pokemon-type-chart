@@ -95,6 +95,10 @@ article, footer, header, main, section {
   box-sizing: border-box;
 }
 
+article {
+  margin: 1rem;
+}
+
 //POKETYPES
 
 .poketype {
@@ -264,9 +268,36 @@ section {
   }
 }
 
+.immune::after {
+  content: "S";
+  .gen6 & {
+    content: "0";
+  }
+
+  .top20 & {
+    content: "0";
+  }
+}
+
+.quad::after {
+  content: "S";
+  .gen6 & {
+    content: "4x";
+  }
+
+  .top20 & {
+    content: "4x";
+  }
+}
+
+
 .double::after {
   content: "S";
   .gen6 & {
+    content: "2x";
+  }
+
+  .top20 & {
     content: "2x";
   }
 }
@@ -278,11 +309,20 @@ section {
     content: "\00bd";
     font-size: 1.3333em;
   }
+
+  .top20 & {
+    content: "\00bd";
+    font-size: 1.3333em;
+  }
 }
 
 .none::after {
   content: "I";
   .gen6 & {
+    content: "O";
+  }
+
+  .top20 & {
     content: "O";
   }
 }
@@ -325,21 +365,54 @@ section {
   }
 }
 
-.attacked-by .double::after,
-.attacking .half::after {
+.attacked-by .immune::after
+{
+  background-color: blue;
+  @include complex-text-shadow($text-shadow-depth, blue);
+}
+
+.attacking .immune::after {
+  background-color: $background-color-super-bad-damage;
+  @include complex-text-shadow($text-shadow-depth, $text-shadow-color-super-bad-damage);
+}
+
+.attacked-by .quad::after
+{
+  background-color: red;
+  @include complex-text-shadow($text-shadow-depth, $text-shadow-color-bad-damage);
+}
+
+.attacking .half::after
+{
+  background-color: $background-color-bad-damage;
+  @include complex-text-shadow($text-shadow-depth, $text-shadow-color-bad-damage);
+}
+
+.attacked-by .double::after
+{
+  background-color: $background-color-bad-damage;
+  @include complex-text-shadow($text-shadow-depth, $text-shadow-color-bad-damage);
+}
+
+.attacking .quad::after
+{
+  background-color: blue;
+  @include complex-text-shadow($text-shadow-depth, blue);
+}
+
+.attacked-by .half::after {
+  background-color: $background-color-good-damage;
+  @include complex-text-shadow($text-shadow-depth, $text-shadow-color-good-damage);
+}
+
+.attacking .double::after {
   background-color: $background-color-good-damage;
   @include complex-text-shadow($text-shadow-depth, $text-shadow-color-good-damage);
 }
 
 .attacking .none::after {
-  background-color: $background-color-super-good-damage;
-  @include complex-text-shadow($text-shadow-depth, $text-shadow-color-super-good-damage);
-}
-
-.attacked-by .half::after,
-.attacking .double::after {
-  background-color: $background-color-bad-damage;
-  @include complex-text-shadow($text-shadow-depth, $text-shadow-color-bad-damage);
+  background-color: $background-color-good-damage;
+  @include complex-text-shadow($text-shadow-depth, $text-shadow-color-good-damage);
 }
 
 .attacked-by .none::after {
