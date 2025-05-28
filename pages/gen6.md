@@ -10,7 +10,7 @@ pokemon:
     damage_from:
       -
         amount: "double"
-        types: []
+        types: [ "fire", "flying", "rock" ]
       -
         amount: "half"
         types: [ "fight", "grass", "ground" ]
